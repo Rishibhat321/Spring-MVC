@@ -1,4 +1,4 @@
-package com.springboot.cruddemo.entity;
+package com.springboot.thymeleafdemo.entity;
 
 import jakarta.persistence.*;
 
