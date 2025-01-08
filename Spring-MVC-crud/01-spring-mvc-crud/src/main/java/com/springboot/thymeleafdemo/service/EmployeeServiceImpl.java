@@ -21,7 +21,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     // delegate the calls to the DA0(from the service layer to the employeeDAO)
     @Override
     public List<Employee> findAll() {
-        return employeeRepository.findAll();
+     //   return employeeRepository.findAll();
+
+        // new method name
+        return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
