@@ -11,4 +11,10 @@ public class DemoController {
         return "home";
     }
 
+    @GetMapping("/showMyLoginPage")
+    public String showMyLoginPage() {
+        return "plain-login";
+    }
+
+
 }
