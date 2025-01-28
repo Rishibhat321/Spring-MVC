@@ -6,14 +6,29 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class DemoSecurityConfig {
 
-    // Adding users, passwords, roles
-    // In-memory authentication
+    // add support for JDBC... no more hard-coded users
+    // JDBC- Authentication
 
+    @Bean
+    public UserDetailsManager userDetailsManager(DataSource dataSource) {
+
+        return new JdbcUserDetailsManager(dataSource);
+    }
+
+
+    // Adding users, passwords, roles
+    // hard-coded users
+    // In-memory authentication
+/*
     @Bean
     public InMemoryUserDetailsManager userDetailsManager() {
 
@@ -39,6 +54,9 @@ public class DemoSecurityConfig {
         return new InMemoryUserDetailsManager(john, mary, susan);
 
     }
+
+ */
+
 
     // configure security of web apps
     @Bean
